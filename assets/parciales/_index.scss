@@ -27,7 +27,6 @@
 .hero-text h1 {
     font-family: 'Bangers', cursive;
     font-size: 100px;
-    margin: 0;
 }
 .hero-text p {
     font-family: 'Reenie Beanie', cursive;
@@ -183,13 +182,6 @@
     color:#888;
   }
   
-  
-  
-  /* Rating Star Widgets Style */
-  .rating-stars ul {
-    list-style-type:none;
-    padding:0;
-  }
   .rating-stars ul > li.star {
     display:inline-block; 
   }
