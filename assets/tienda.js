@@ -9,6 +9,20 @@ const objeto3 = {id: 3, nombre:"PlanOnline", precio:2000,};
 
 const agregarCarrito = document.querySelectorAll("#agregar");
 
+function confirmacion() {
+    swal({
+        title: "Felicidades!",
+        text: "Agregaste un item al carrito!",
+        icon: "success",
+      })
+};
+
+function confirmacionCompra() {
+    swal("Finalizar la compra?", {
+        buttons: ["No", "Si"],
+      });
+}
+
 agregarCarrito.forEach(btn => {
     btn.addEventListener("click", () => console.log("#agregar"))
 });

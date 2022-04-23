@@ -6,7 +6,7 @@
       return app.init();
     });
     app = {
-      text: "Hello World. Enjoy this cool typing effect. ",
+      text: "Levanta pesado para vivir liviano. ",
       index: 0,
       chars: 0,
       speed: 100,
