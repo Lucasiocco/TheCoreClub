@@ -1,11 +1,11 @@
 // TIENDA
 const carrito = [];
-const productos = ["objeto1", "objeto2", "objeto3"];
 
 const objeto1 = {id: 1, tittle:"Plan12", price:4500,};
 const objeto2 = {id: 2, tittle:"Plan8", price:3500,};
 const objeto3 = {id: 3, tittle:"PlanOnline", price:2000,};
 
+const productos = [objeto1, objeto2, objeto3];
 
 const agregarCarrito = document.querySelectorAll(".addToCart");
 const tbody = document.querySelector("tbody");
@@ -25,14 +25,29 @@ function confirmacionCompra() {
 }
 
 agregarCarrito.forEach(addToCart => {
-  addToCart.addEventListener("click", () => addToCarrito());
   addToCart.addEventListener("click", () => confirmacion());
 });
 
-function addToCarrito(){
-    const itemId = [objeto1.id];
-    const itemTittle = [objeto1.tittle];
-    const itemPrice = [objeto1.price];
+function addToCarrito(id){
+var itemId 
+var itemTittle
+var itemPrice
+
+  if (id == 1) {
+    itemId = objeto1.id;
+    itemTittle = objeto1.tittle;
+    itemPrice = objeto1.price;
+  } else if (id == 2) {
+    itemId = objeto2.id;
+    itemTittle = objeto2.tittle;
+    itemPrice = objeto2.price;
+  } else if (id == 3) {
+    itemId = objeto3.id;
+    itemTittle = objeto3.tittle;
+    itemPrice = objeto3.price;
+  } else { 
+    console.log("Id Incorrecto")
+  }
 
     const newItem = {
         id: itemId,
@@ -40,8 +55,8 @@ function addToCarrito(){
         price: itemPrice,
         cantidad: 1,
     }
-
-    addItemCarrito(newItem)
+    console.log(newItem);
+    addItemCarrito(newItem);
 }
 
 function addItemCarrito(newItem){
