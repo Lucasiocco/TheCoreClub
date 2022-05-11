@@ -2,12 +2,13 @@
 const carrito = [];
 const productos = ["objeto1", "objeto2", "objeto3"];
 
-const objeto1 = {id: 1, nombre:"Plan12", precio:4500,};
-const objeto2 = {id: 2, nombre:"Plan8", precio:3500,};
-const objeto3 = {id: 3, nombre:"PlanOnline", precio:2000,};
+const objeto1 = {id: 1, tittle:"Plan12", price:4500,};
+const objeto2 = {id: 2, tittle:"Plan8", price:3500,};
+const objeto3 = {id: 3, tittle:"PlanOnline", price:2000,};
 
 
-const agregarCarrito = document.querySelectorAll("#agregar");
+const agregarCarrito = document.querySelectorAll(".addToCart");
+const tbody = document.querySelector("tbody");
 
 function confirmacion() {
     swal({
@@ -23,17 +24,18 @@ function confirmacionCompra() {
       });
 }
 
-agregarCarrito.forEach(btn => {
-    btn.addEventListener("click", () => console.log("#agregar"))
+agregarCarrito.forEach(addToCart => {
+  addToCart.addEventListener("click", () => addToCarrito());
+  addToCart.addEventListener("click", () => confirmacion());
 });
 
-function addToCarrito(e){
-    const buttonC = e.target;
-    const item = buttonC.closest(".card");
-    const itemTittle = item.querySelector(".card__tittle").textContent;
-    const itemPrice = item.querySelector(".card__price").textContent;
+function addToCarrito(){
+    const itemId = [objeto1.id];
+    const itemTittle = [objeto1.tittle];
+    const itemPrice = [objeto1.price];
 
     const newItem = {
+        id: itemId,
         tittle: itemTittle,
         price: itemPrice,
         cantidad: 1,
@@ -57,7 +59,7 @@ function renderCarrito(){
         tr.classList.add("ItemCarrito")
         const Content = `
         
-        <th scope="row">1</th>
+        <td class:"table__id">${item.id}</td>
         <td class:"table__tittle">${item.tittle}</td>
         <td class="table__cantidad">${item.cantidad}</td>
         <td class="table__price">${item.price}</td>
@@ -67,3 +69,26 @@ function renderCarrito(){
       tbody.append(tr);
     })
 }
+
+
+
+  // MODAL COMPRA
+  var modal = document.getElementById("myModal");
+
+  var btn = document.getElementById("myBtn");
+  
+  var span = document.getElementsByClassName("close")[0];
+  
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }

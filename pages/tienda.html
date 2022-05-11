@@ -44,24 +44,24 @@
         <section class="tienda"> 
         <div class="card">
             <img src="/assets/multimedia/TheCoreClub.png" alt="The Core Club" style="width:100%">
-            <h1 class="card__tittle">Pack 12</h1>
+            <h1 class="card__tittle">Pack x12</h1>
             <p class="card__price">$4500</p>
             <p class="card__info">Incluye 3 clases personalizadas por semana.</p>
-            <p><button class="buttonC" onclick="confirmacion()" id="agregar">Comprar</button></p>
+            <p><button class="addToCart" onclick="addToCarrito(this.className)">Comprar</button></p>
         </div>
         <div class="card">
             <img src="/assets/multimedia/TheCoreClub.png" alt="The Core Club" style="width:100%">
-            <h1 class="card__tittle">Pack 8</h1>
+            <h1 class="card__tittle">Pack x8</h1>
             <p class="card__price">$3500</p>
             <p class="card__info">Incluye 2 clases personalizadas por semana.</p>
-            <p><button class="buttonC" onclick="confirmacion()" id="agregar">Comprar</button></p>
+            <p><button class="addToCart" onclick="addToCarrito(this.className)">Comprar</button></p>
         </div>
         <div class="card">
             <img src="/assets/multimedia/TheCoreClub.png" alt="The Core Club" style="width:100%">
-            <h1 class="card__tittle">Plan Online</h1>
+            <h1 class="card__tittle">Plan On</h1>
             <p class="card__price">$2000</p>
             <p class="card__info">Plan personalizado con seguimiento a distancia.</p>
-            <p><button class="buttonC" onclick="confirmacion()" id="agregar">Comprar</button></p>
+            <p><button class="addToCart" onclick="addToCarrito(this.className)">Comprar</button></p>
         </div>
         </section>
     <div class="accordion" id="accordionExample">
@@ -76,7 +76,7 @@
                 <table class="table table-dark table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
@@ -85,7 +85,77 @@
                     <tbody class="tbody">
                     </tbody>
                   </table>
-                  <button type="button" class="btn btn-dark" onclick="confirmacionCompra()" id="finalizarCompra">Finalizar Compra</button>
+                  <button id="myBtn">Finalizar Compra</button>
+                  <div id="myModal" class="modal">
+                    <div class="modal-content" class="modal">
+                      <span class="close">&times;</span>
+                      <div class="row">
+                        <div class="col-100">
+                          <div class="container">
+                            <form action="/action_page.php">
+                      
+                              <div class="row">
+                                <div class="col-50">
+                                  <h3>Completar Datos</h3>
+                                  <label for="fname"><i class="fa fa-user"></i> Nombre Completo</label>
+                                  <input type="text" id="fname" name="firstname">
+                                  <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                  <input type="text" id="email" name="email">
+                                  <label for="adr"><i class="fa fa-address-card-o"></i> Direccion</label>
+                                  <input type="text" id="adr" name="address">
+                                  <label for="city"><i class="fa fa-institution"></i> Ciudad</label>
+                                  <input type="text" id="city" name="city">
+                      
+                                  <div class="row">
+                                    <div class="col-50">
+                                      <label for="state">Provincia</label>
+                                      <input type="text" id="state" name="state">
+                                    </div>
+                                    <div class="col-50">
+                                      <label for="zip">Codigo Postal</label>
+                                      <input type="text" id="zip" name="zip">
+                                    </div>
+                                  </div>
+                                </div>
+                      
+                                <div class="col-50">
+                                  <h3>Metodos de Pago</h3>
+                                  <label for="fname">Mercado Pago o Transferencia Bancaria (Enviar comprobante por Whatsapp)</label>
+                                  <p><b>CBU:</b>.................</p>
+                                  <div class="icon-container">
+                                    <i><img src="/assets/multimedia/visa_method_card_payment_icon_32.png" alt=""></i>
+                                    <i><img src="/assets/multimedia/bank_card_credit_debit_mastercard_icon_32.png" alt=""></i>
+                                  </div>
+                                  <label for="cname">Titular</label>
+                                  <input type="text" id="cname" name="cardname">
+                                  <label for="ccnum">Numero de Tarjeta</label>
+                                  <input type="text" id="ccnum" name="cardnumber">
+                                  <label for="expmonth">Mes de vencimiento</label>
+                                  <input type="text" id="expmonth" name="expmonth" >
+                      
+                                  <div class="row">
+                                    <div class="col-50">
+                                      <label for="expyear">Año de vencimiento</label>
+                                      <input type="text" id="expyear" name="expyear">
+                                    </div>
+                                    <div class="col-50">
+                                      <label for="cvv">CVV</label>
+                                      <input type="text" id="cvv" name="cvv">
+                                    </div>
+                                  </div>
+                                </div>
+                      
+                              </div>
+                              <label>
+                                <input type="checkbox" checked="checked" name="sameadr"> ¿Incluir envio?
+                              </label>
+                              <input value="Continuar" class="btn" onclick="confirmacionCompra()">
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                  </div>
             </div>
           </div>
         </div>
